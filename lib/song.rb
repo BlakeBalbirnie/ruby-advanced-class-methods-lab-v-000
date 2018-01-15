@@ -21,14 +21,14 @@ class Song
     song.name = name
     song
   end
- 
+
   def self.create_by_name(name)
     song = self.new
     song.name = name
     song.save
     song
   end
- 
+
   def self.find_by_name(name)
     self.all.detect {|x| x.name == name}
   end
@@ -38,13 +38,13 @@ class Song
       self.find_by_name(name)
     else
       self.create_by_name(name)
-    end   
+    end
   end
 
   def self.alphabetical
     @@all.sort_by! {|x| x.name}
   end
- 
+
   def self.new_from_filename(name)
     rows = name.split(/[-.]/)
     song_name = rows[1].strip
@@ -53,7 +53,7 @@ class Song
     song = self.new
     song.name = song_name
     song.artist_name = artist
-    song     
+    song
   end
 
   def self.create_from_filename(name)
@@ -65,7 +65,7 @@ class Song
     song.name = song_name
     song.artist_name = artist
     song.save
-    song  
+    song
   end
 
   def self.destroy_all
